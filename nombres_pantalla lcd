@@ -1,0 +1,19 @@
+iAC_ADDR = 0x27
+totalRows = 2
+totalcolumns = 16
+
+iec = SoftI2C (scl=Pin(23), sda=Pin (21), freq=1000)
+lcd = I2cld (iec, ieC_ADDR, totalRows, totalcolumns)
+
+While True:
+    lcdputstr("...nombre..")
+    time.sleep(2)
+    lcd.clear()
+    for i in range(8):
+        lcd.putstr(str(i))
+        time.sleep(1)
+        lcd.clear()
+    lcd.putstr("..nombres")
+    time.sleep(2)
+    lcd.clear()
+
